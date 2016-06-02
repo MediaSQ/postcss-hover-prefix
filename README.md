@@ -1,31 +1,23 @@
-# postcss-class-prefix [![Build Status](https://secure.travis-ci.org/thompsongl/postcss-class-prefix.png?branch=master)](http://travis-ci.org/thompsongl/postcss-class-prefix)
+A [PostCSS](https://github.com/postcss/postcss) plugin to prefix selectors that use :hover pseudoelements.
 
-A [PostCSS](https://github.com/postcss/postcss) plugin to prefix/namespace classes.
-
-Avoid collisions with other libraries/stylesheets by prefixing your components with a namespace.
+Useful to not letting hover effects on apps when browsing from a mobile device
 
 __Example input__
 
 ```css
 .Component { /* ... */ }
-.Component--modifier { /* ... */ }
+.Component--modifier:hover { /* ... */ }
 .Component-descendent { /* ... */ }
 ```
 
 __Example output__
-`classPrefix('pfx-')`
+`classPrefix('pfx')`
 ```css
-.pfx-Component { /* ... */ }
-.pfx-Component--modifier { /* ... */ }
-.pfx-Component-descendent { /* ... */ }
+.Component { /* ... */ }
+.pfx .Component--modifier { /* ... */ }
+.Component-descendent { /* ... */ }
 ```
 
-
-## Installation
-
-```
-npm install postcss-class-prefix
-```
 
 ## Usage
 
@@ -36,20 +28,7 @@ var classPrfx = require('postcss-class-prefix');
 
 var css = fs.readFileSync('css/my-file.css', 'utf8').toString();
 var out = postcss()
-          .use(classPrfx('my-prefix-'))
-          .process(css);
-```
-
-### Using the `ignore` option
-
-```javascript
-var fs        = require('fs');
-var postcss   = require('postcss');
-var classPrfx = require('postcss-class-prefix');
-
-var css = fs.readFileSync('css/my-file.css', 'utf8').toString();
-var out = postcss()
-          .use(classPrfx('my-prefix-', { ignore: [/ng-/, 'some-class-to-ignore']}))
+          .use(classPrfx('.my-prefix'))
           .process(css);
 ```
 
@@ -59,4 +38,4 @@ MIT
 
 ## Acknowledgements
 
-* Based on [rework-class-prefix](https://github.com/jnv/rework-class-prefix) ([originally](https://github.com/johnotander/rework-class-prefix))
+* Based on [postcss-class-prefix](https://github.com/thompsongl/postcss-class-prefix)
