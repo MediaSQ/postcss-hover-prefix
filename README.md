@@ -24,11 +24,11 @@ __Example output__
 ```javascript
 var fs        = require('fs');
 var postcss   = require('postcss');
-var classPrfx = require('postcss-class-prefix');
+var hoverPrfx = require('postcss-hover-prefix');
 
 var css = fs.readFileSync('css/my-file.css', 'utf8').toString();
 var out = postcss()
-          .use(classPrfx('.my-prefix'))
+          .use(hoverPrfx('.my-prefix'))
           .process(css);
 ```
 
