@@ -7,10 +7,10 @@ function fixture(name) {
   return fs.readFileSync('test/fixtures/' + name, 'utf8').trim();
 }
 
-describe('postcss-class-prefix', function() {
-  it('prefixes all classes', function() {
+describe('postcss-hover-prefix', function() {
+  it('prefixes the hover selectors', function() {
     var output = postcss()
-                .use(classPrfx('prfx-'))
+                .use(classPrfx('prfx'))
                 .process(fixture('source.css')).css;
     var expected = fixture('source.expected.css');
 

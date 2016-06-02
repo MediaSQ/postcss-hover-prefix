@@ -9,3 +9,7 @@
 .my-class .with-another-class:hover {
   border: 1px solid black;
 }
+
+.my-class:hover .with-another-class {
+  display: flex;
+}

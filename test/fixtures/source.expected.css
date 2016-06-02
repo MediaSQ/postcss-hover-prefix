@@ -9,3 +9,7 @@
 .prfx .my-class .with-another-class:hover {
   border: 1px solid black;
 }
+
+.prfx .my-class:hover .with-another-class {
+  display: flex;
+}
