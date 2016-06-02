@@ -2,6 +2,10 @@
   color: green;
 }
 
-.my-class .with-another-class {
+.my-class .with-a-class {
   box-sizing: border-box;
+}
+
+.my-class .with-another-class:hover {
+  border: 1px solid black;
 }
